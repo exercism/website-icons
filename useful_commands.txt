@@ -7,12 +7,12 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
   first=`echo $line | cut -f1 -d' '`
   second=`echo $line | cut -f9 -d'/'`
   if [ -e "$first-white.png" ]
-    then mv "$first-white.png" "../$second-white.png"
+    then mv -n "$first-white.png" "../$second-white.png"
   fi
   if [ -e "$first-turquoise.png" ]
-    then mv "$first-turquoise.png" "../$second-turquoise.png"
+    then mv -n "$first-turquoise.png" "../$second-turquoise.png"
   fi
   if [ -e "$first-dark.png" ]
-    then mv "$first-dark.png" "../$second-dark.png"
+    then mv -n "$first-dark.png" "../$second-dark.png"
   fi
 done < "../../icon_mappings.txt"
