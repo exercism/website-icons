@@ -25,7 +25,7 @@
 288927	https://github.com/exercism/problem-specifications/blob/master/exercises/two-fer/description.md
 324141	https://github.com/exercism/problem-specifications/blob/master/exercises/proverb/description.md
 340925	https://github.com/exercism/problem-specifications/blob/master/exercises/food-chain/description.md
-340925	https://github.com/exercism/problem-specifications/blob/master/exercises/phone-number/description.md
+1017967	https://github.com/exercism/problem-specifications/blob/master/exercises/phone-number/description.md
 344782	https://github.com/exercism/problem-specifications/blob/master/exercises/triangle/description.md
 347111	https://github.com/exercism/problem-specifications/blob/master/exercises/scrabble-score/description.md
 463795	https://github.com/exercism/problem-specifications/blob/master/exercises/rna-transcription/description.md
@@ -44,7 +44,7 @@
 780530	https://github.com/exercism/problem-specifications/blob/master/exercises/rotational-cipher/description.md
 788890	https://github.com/exercism/problem-specifications/blob/master/exercises/queen-attack/description.md
 795296	https://github.com/exercism/problem-specifications/blob/master/exercises/hamming/description.md
-808115	https://github.com/exercism/problem-specifications/blob/master/exercises/linked-list/description.md
+837257	https://github.com/exercism/problem-specifications/blob/master/exercises/linked-list/description.md
 811816	https://github.com/exercism/problem-specifications/blob/master/exercises/grep/description.md
 815900	https://github.com/exercism/problem-specifications/blob/master/exercises/secret-handshake/description.md
 826014	https://github.com/exercism/problem-specifications/blob/master/exercises/tournament/description.md
@@ -68,7 +68,7 @@
 967307	https://github.com/exercism/problem-specifications/blob/master/exercises/beer-song/description.md
 974918	https://github.com/exercism/problem-specifications/blob/master/exercises/pov/description.md
 975001	https://github.com/exercism/problem-specifications/blob/master/exercises/alphametics/description.md
-984340	https://github.com/exercism/problem-specifications/blob/master/exercises/diamond/description.md
+984335	https://github.com/exercism/problem-specifications/blob/master/exercises/diamond/description.md
 1001594	https://github.com/exercism/problem-specifications/blob/master/exercises/forth/description.md
 1005217	https://github.com/exercism/problem-specifications/blob/master/exercises/allergies/description.md
 1006603	https://github.com/exercism/problem-specifications/blob/master/exercises/grade-school/description.md
@@ -80,9 +80,9 @@
 1038899	https://github.com/exercism/problem-specifications/blob/master/exercises/simple-linked-list/description.md
 1041915	https://github.com/exercism/problem-specifications/blob/master/exercises/kindergarten-garden/description.md
 1051493	https://github.com/exercism/problem-specifications/blob/master/exercises/dot-dsl/description.md
-1069867	https://github.com/exercism/problem-specifications/blob/master/exercises/clock/description.md
+934178	https://github.com/exercism/problem-specifications/blob/master/exercises/clock/description.md
 1069875	https://github.com/exercism/problem-specifications/blob/master/exercises/house/description.md
-1088610	https://github.com/exercism/problem-specifications/blob/master/exercises/difference-of-squares/description.md
+1088605	https://github.com/exercism/problem-specifications/blob/master/exercises/difference-of-squares/description.md
 1099398	https://github.com/exercism/problem-specifications/blob/master/exercises/flatten-array/description.md
 1106913	https://github.com/exercism/problem-specifications/blob/master/exercises/robot-name/description.md
 1114680	https://github.com/exercism/problem-specifications/blob/master/exercises/bowling/description.md
