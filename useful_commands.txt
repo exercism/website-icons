@@ -16,3 +16,19 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
     then mv -n "$first-dark.png" "../$second-dark.png"
   fi
 done < "../../icon_mappings.txt"
+
+# find non square ones
+for i in *.png; do identify $i; done | grep -v 150x150 | less
+
+
+for img in `for i in *.png; do identify $i; done | grep -v 150x150 | cut -f1 -d' '`
+  do convert \
+     $img \
+    -thumbnail '150x150>' \
+    -background transparent \
+    -gravity center \
+    -extent 150x150 \
+    -compose Copy_Opacity \
+     resized.png
+    mv resized.png $img
+done
