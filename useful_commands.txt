@@ -32,3 +32,7 @@ for img in `for i in *.png; do identify $i; done | grep -v 150x150 | cut -f1 -d'
      resized.png
     mv resized.png $img
 done
+
+
+
+aws s3 sync --profile exercism --acl public-read exercises s3://exercism-static/exercises
