@@ -35,16 +35,11 @@ done
 aws s3 sync --profile exercism --acl public-read exercises s3://exercism-static/exercises
 
 
-
-bordered-green.png hex-green.png bordered-turquoise.png	hex-turquoise.png
-
---------
-
-hex-white.png
+#--------
 
 rm -rf track-images
 mkdir -p track-images
-for img in logos/*[^-t-]*.png;
+for img in logos/*[^-t].png;
   do echo $img
     for shapeFile in bordered-green.png hex-green.png bordered-turquoise.png hex-turquoise.png;
     do echo $shapeFile
@@ -54,3 +49,12 @@ for img in logos/*[^-t-]*.png;
       composite $img shapes/$shapeFile "track-images/$output"
   done
 done
+for img in logos/*-t.png;
+  do echo $img
+    track=`basename $img -t.png`
+    output="$track-hex-white.png"
+    composite $img shapes/hex-white.png "track-images/$output"
+  done
+done
+
+aws s3 sync --profile exercism --acl public-read tracks/track-images s3://exercism-static/tracks
