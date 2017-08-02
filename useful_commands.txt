@@ -56,5 +56,9 @@ for img in logos/*-t.png;
     composite $img shapes/hex-white.png "track-images/$output"
   done
 done
+for shapeFile in bordered-green.png hex-green.png bordered-turquoise.png hex-turquoise.png hex-white.png;
+  do cp "shapes/$shapeFile" "track-images/default-$shapeFile"
+done
+
 
 aws s3 sync --profile exercism --acl public-read tracks/track-images s3://exercism-static/tracks
