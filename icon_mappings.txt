@@ -109,3 +109,10 @@
 961653	https://github.com/exercism/problem-specifications/blob/master/exercises/prime-factors/description.md
 577199	https://github.com/exercism/problem-specifications/blob/master/exercises/run-length-encoding/description.md
 1057914	https://github.com/exercism/problem-specifications/blob/master/exercises/series/description.md
+56958	https://github.com/exercism/problem-specifications/blob/master/exercises/binary/description.md
+56958	https://github.com/exercism/problem-specifications/blob/master/exercises/trinary/description.md
+56958	https://github.com/exercism/problem-specifications/blob/master/exercises/hexadecimal/description.md
+56958	https://github.com/exercism/problem-specifications/blob/master/exercises/octal/description.md
+919636	https://github.com/exercism/coq/blob/master/exercises/tautology/.meta/description.md
+	https://github.com/exercism/rust/blob/master/exercises/luhn-from/.meta/description.md
+	https://github.com/exercism/rust/blob/master/exercises/luhn-trait/.meta/description.md
