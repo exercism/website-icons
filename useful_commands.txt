@@ -33,3 +33,24 @@ for img in `for i in *.png; do identify $i; done | grep -v 150x150 | cut -f1 -d'
 done
 
 aws s3 sync --profile exercism --acl public-read exercises s3://exercism-static/exercises
+
+
+
+bordered-green.png hex-green.png bordered-turquoise.png	hex-turquoise.png
+
+--------
+
+hex-white.png
+
+rm -rf track-images
+mkdir -p track-images
+for img in logos/*[^-t-]*.png;
+  do echo $img
+    for shapeFile in bordered-green.png hex-green.png bordered-turquoise.png hex-turquoise.png;
+    do echo $shapeFile
+      track=`basename $img .png`
+      shape=`basename $shapeFile .png`
+      output=$track-$shape.png
+      composite $img shapes/$shapeFile "track-images/$output"
+  done
+done
