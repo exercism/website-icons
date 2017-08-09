@@ -41,7 +41,7 @@ aws s3 sync --profile exercism --acl public-read exercises s3://exercism-static/
 pushd tracks
 rm -rf track-images
 mkdir -p track-images
-for img in logos/*[^(-t)].png;
+for img in logos/!(*-t.png);
   do echo $img
     for shapeFile in bordered-green.png hex-green.png bordered-turquoise.png hex-turquoise.png;
     do echo $shapeFile
