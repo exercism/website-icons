@@ -1,3 +1,4 @@
+pushd exercises/unnamed
 #Renames
 for i in *.png; do new=`echo $i | sed -e 's/FFFFFF/white/' -e 's/009CA8/turquoise/' -e 's/BBBBBB/dark/' | sed -e 's/.*_\([0-9]*\)_/\1-/'`; mv $i $new; done
 
@@ -37,6 +38,7 @@ aws s3 sync --profile exercism --acl public-read exercises s3://exercism-static/
 
 #--------
 
+pushd tracks
 rm -rf track-images
 mkdir -p track-images
 for img in logos/*[^-t].png;
@@ -59,6 +61,6 @@ done
 for shapeFile in bordered-green.png hex-green.png bordered-turquoise.png hex-turquoise.png hex-white.png;
   do cp "shapes/$shapeFile" "track-images/default-$shapeFile"
 done
-
+popd
 
 aws s3 sync --profile exercism --acl public-read tracks/track-images s3://exercism-static/tracks
