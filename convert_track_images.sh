@@ -1,6 +1,9 @@
+#!/bin/bash -xe
+
 pushd tracks
 rm -rf track-images
 mkdir -p track-images
+
 for img in logos/!(*-t.png);
 do echo $img
   for shapeFile in bordered-green.png hex-green.png bordered-turquoise.png hex-turquoise.png;
