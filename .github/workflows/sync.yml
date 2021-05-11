@@ -14,7 +14,7 @@ on:
 jobs:
   deploy:
     name: Upload icons to S3
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
