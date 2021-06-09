@@ -1,0 +1,10 @@
+<svg height="160" width="160" xmlns="http://www.w3.org/2000/svg">
+  <path d="M16 80a64 64 0 10128 0 64 64 0 10-128 0z" fill="#C7F0FF" stroke="#C7F0FF" stroke-width="1.6"/>
+  <path d="M52.6528 127.3584a27.3472 3.3472 0 1054.6944 0 27.3472 3.3472 0 10-54.6944 0z" fill="#45413c" opacity=".15"/>
+  <path d="M47.784 114.7424a2.08 2.08 0 002.08 2.08h60.2736a2.08 2.08 0 002.08-2.08V47.2L94.5504 29.5248h-44.688a2.08 2.08 0 00-2.08 2.08z" fill="#fff"/>
+  <path d="M47.784 114.7424a2.08 2.08 0 002.08 2.08h60.2736a2.08 2.08 0 002.08-2.08V47.2L94.5504 29.5248h-44.688a2.08 2.08 0 00-2.08 2.08z" fill="none" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/>
+  <path d="M112.216 47.2H96.4896a1.9456 1.9456 0 01-1.9392-1.9408V29.5248z" fill="#fff" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/>
+  <path d="M57.864 67.68h44.272v32.6544H57.864z" fill="#fff"/>
+  <path d="M102.136 78.56v-8.9408a1.9392 1.9392 0 00-1.9392-1.9392h-40.392a1.9408 1.9408 0 00-1.9408 1.9392V78.56z" fill="#6dd627"/>
+  <path d="M72.6224 67.68v32.6544M87.3792 67.68v32.6544M57.864 78.5648h44.272M57.864 89.4496h44.272M57.864 67.68h44.272v32.6544H57.864z" fill="none" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/>
+</svg>
