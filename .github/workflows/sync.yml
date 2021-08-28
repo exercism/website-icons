@@ -36,3 +36,4 @@ jobs:
           aws s3 sync tracks       s3://${{ env.s3_bucket }}/tracks/       --acl public-read --no-progress --cache-control max-age=31536000
           aws s3 sync placeholders s3://${{ env.s3_bucket }}/placeholders/ --acl public-read --no-progress --cache-control max-age=31536000
           aws s3 sync key-features s3://${{ env.s3_bucket }}/key-features/ --acl public-read --no-progress --cache-control max-age=31536000
+          aws s3 sync meta         s3://${{ env.s3_bucket }}/meta/       --acl public-read --no-progress --cache-control max-age=31536000
