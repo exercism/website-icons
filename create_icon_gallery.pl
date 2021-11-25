@@ -9,7 +9,10 @@
 use File::Basename;
 use Cwd;
 
-print "# " . basename(cwd) . " icons\n";
+# Derive title from current directory name, captialised,
+# stripped of any trailing 's', and any '-' changed to ' '.
+my $title = ucfirst(basename(cwd)) =~ s/s$//r =~ s/-/ /gr;
+print "# " . $title . " icons\n";
 print "Note this file is auto-generated. To re-generate, run `" . basename $0 . "` in this folder.\n";
 print "\n";
 print "| | | | | |\n";
