@@ -37,4 +37,42 @@ jobs:
           aws s3 sync tracks       s3://${{ env.s3_bucket }}/tracks/       --acl public-read --no-progress --cache-control max-age=31536000
           aws s3 sync placeholders s3://${{ env.s3_bucket }}/placeholders/ --acl public-read --no-progress --cache-control max-age=31536000
           aws s3 sync key-features s3://${{ env.s3_bucket }}/key-features/ --acl public-read --no-progress --cache-control max-age=31536000
-          aws s3 sync meta         s3://${{ env.s3_bucket }}/meta/       --acl public-read --no-progress --cache-control max-age=31536000
+          aws s3 sync meta         s3://${{ env.s3_bucket }}/meta/         --acl public-read --no-progress --cache-control max-age=31536000
+
+      - name: Gather files to invalidate in CloudFront
+        uses: actions/github-script@d556feaca394842dc55e4734bf3bb9f685482fa0
+        if: github.event_name == 'push' # Don't run on scheduled runs
+        id: invalidate-file-paths
+        with:
+          script: |
+            const commit = await github.rest.repos.getCommit({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: context.payload.ref
+            })
+
+            const filesToInvalidate = []
+
+            for (const file of commit["data"]["files"]) {
+              // Don't invalidate new files
+              if (file["status"] == "added") {
+                continue
+              }
+
+              if (file["filename"].startsWith("exercises/") ||
+                  file["filename"].startsWith("tracks/") ||
+                  file["filename"].startsWith("placeholders/") ||
+                  file["filename"].startsWith("key-features/") ||
+                  file["filename"].startsWith("meta/")) {
+                filesToInvalidate.push("/" + file["filename"])
+              }
+            }
+
+            return filesToInvalidate.join(" ")
+
+      - name: Invalidate assets in CloudFront
+        if: github.event_name == 'push' # Don't run on scheduled runs
+        run: |
+          if [ ${{ steps.invalidate-file-paths.outputs.result }} != "" ]; then
+            aws cloudfront create-invalidation --distribution-id E2UP4JZ9NOWLGP --paths ${{ steps.invalidate-file-paths.outputs.result }}
+          fi
