@@ -41,7 +41,7 @@ jobs:
 
       - name: Gather files to invalidate in CloudFront
         uses: actions/github-script@d556feaca394842dc55e4734bf3bb9f685482fa0
-        if: context.event_name == 'push' # Don't run on scheduled runs
+        if: github.event_name == 'push' # Don't run on scheduled runs
         id: invalidate-file-paths
         with:
           script: |
@@ -49,7 +49,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               ref: context.payload.ref
-            });
+            })
 
             const filesToInvalidate = []
 
@@ -63,15 +63,16 @@ jobs:
                   file["filename"].startsWith("tracks/") ||
                   file["filename"].startsWith("placeholders/") ||
                   file["filename"].startsWith("key-features/") ||
-                  file["filename"].startsWith("meta/") ||
-              ) {
-                filesToInvalidate.push(file["filename"])
+                  file["filename"].startsWith("meta/")) {
+                filesToInvalidate.push("/" + file["filename"])
               }
             }
 
             return filesToInvalidate.join(" ")
 
       - name: Invalidate assets in CloudFront
-        if: context.event_name == 'push' # Don't run on scheduled runs
+        if: github.event_name == 'push' # Don't run on scheduled runs
         run: |
-          aws cloudfront create-invalidation --distribution-id E2UP4JZ9NOWLGP --paths ${{ steps.invalidate-file-paths.outputs.result }}
+          if [ ${{ steps.invalidate-file-paths.outputs.result }} != "" ]; then
+            aws cloudfront create-invalidation --distribution-id E2UP4JZ9NOWLGP --paths ${{ steps.invalidate-file-paths.outputs.result }}
+          fi
