@@ -10,6 +10,7 @@ on:
       - main
   schedule:
     - cron: 50 4 * * *
+  workflow_dispatch:
 
 jobs:
   deploy:
