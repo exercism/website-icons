@@ -1,0 +1,31 @@
+name: Keep alive
+
+on:
+  schedule:
+    - cron: 0 0 1 * * # Once every month
+  workflow_dispatch:
+
+env:
+  GIT_USERNAME: "Exercism Bot"
+  GIT_EMAIL: "66069679+exercism-bot@users.noreply.github.com"
+
+jobs:
+  keep_alive:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+        with:
+          path: main
+
+      - name: Configure the git user
+        if: steps.changes.outputs.changes == 'true'
+        run: |
+          git config --global user.email "$GIT_EMAIL"
+          git config --global user.name "$GIT_USERNAME"
+
+      - name: Create and push an empty commit
+        run: |
+          git commit --allow-empty -m "Empty commit"
+          git push origin main
