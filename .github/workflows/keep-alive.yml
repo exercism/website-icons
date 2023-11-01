@@ -17,7 +17,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
         with:
-          path: main
           token: ${{ secrets.PAT_EMPTY_COMMITS }}
           fetch-depth: 0
 
