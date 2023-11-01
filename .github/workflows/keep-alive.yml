@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
         with:
           path: main
-          token: ${{ secrets.BOT_PERSONAL_ACCESS_TOKEN }}
+          token: ${{ secrets.PAT_EMPTY_COMMITS }}
           fetch-depth: 0
 
       - name: Configure the git user
