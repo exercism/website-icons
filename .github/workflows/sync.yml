@@ -74,5 +74,5 @@ jobs:
         if: github.event_name == 'push' # Don't run on scheduled runs
         run: |
           if [ ${{ steps.invalidate-file-paths.outputs.result }} != "" ]; then
-            aws cloudfront create-invalidation --distribution-id E2UP4JZ9NOWLGP --paths ${{ steps.invalidate-file-paths.outputs.result }}
+            aws cloudfront create-invalidation --distribution-id E3L749HRPZHLFS --paths ${{ steps.invalidate-file-paths.outputs.result }}
           fi
