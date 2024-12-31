@@ -37,8 +37,9 @@ jobs:
           aws s3 sync tracks       s3://${{ env.s3_bucket }}/tracks/       --acl public-read --no-progress --cache-control max-age=31536000
           aws s3 sync placeholders s3://${{ env.s3_bucket }}/placeholders/ --acl public-read --no-progress --cache-control max-age=31536000
           aws s3 sync key-features s3://${{ env.s3_bucket }}/key-features/ --acl public-read --no-progress --cache-control max-age=31536000
+          aws s3 sync bootcamp     s3://${{ env.s3_bucket }}/bootcamp/     --acl public-read --no-progress --cache-control max-age=100
           aws s3 sync meta         s3://${{ env.s3_bucket }}/meta/         --acl public-read --no-progress --cache-control max-age=31536000
-
+          
       - name: Gather files to invalidate in CloudFront
         uses: actions/github-script@d556feaca394842dc55e4734bf3bb9f685482fa0
         if: github.event_name == 'push' # Don't run on scheduled runs
@@ -63,6 +64,7 @@ jobs:
                   file["filename"].startsWith("tracks/") ||
                   file["filename"].startsWith("placeholders/") ||
                   file["filename"].startsWith("key-features/") ||
+                  file["filename"].startsWith("bootcamp/") ||
                   file["filename"].startsWith("meta/")) {
                 filesToInvalidate.push("/" + file["filename"])
               }
