@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="434" height="289" viewBox="0 0 434 289" id="jiki-svg-9kzhw82ofa" style="
+    position: absolute;
+    height: 434px;
+    background: black;
+"><foreignObject width="100%" height="100%" x="0" y="0" externalresourcesrequired="true">
+        <div class="--jiki-faux-body"><div id="game">
+  <div id="bricks">
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+    <div id="brick"></div>
+  </div>
+  <div id="ball"></div>
+  <div id="paddle"></div>
+</div><style>#jiki-svg-9kzhw82ofa {body { background: white; }button, hr, inputp { overflow: visible; }progress, sub, sup { vertical-align: baseline; }[type="checkbox"], [type="radio"], legend { box-sizing: border-box; padding: 0px; }html { line-height: 1.15; text-size-adjust: 100%; }body, .--jiki-faux-body { margin: 0px; }details, main { display: block; }h1 { font-size: 2em; margin: 0.67em 0px; }hr { box-sizing: content-box; height: 0px; }code, kbd, pre, samp { font-family: monospace, monospace; font-size: 1em; }a { background-color: transparent; }abbr[title] { border-bottom: none; text-decoration: underline dotted; }b, strong { font-weight: bolder; }small { font-size: 80%; }sub, sup { font-size: 75%; line-height: 0; position: relative; }sub { bottom: -0.25em; }sup { top: -0.5em; }img { border-style: none; }button, input, optgroup, select, textarea { font-family: inherit; font-size: 100%; line-height: 1.15; margin: 0px; }button, select { text-transform: none; }[type="button"], [type="reset"], [type="submit"], button { appearance: button; }fieldset { padding: 0.35em 0.75em 0.625em; }legend { color: inherit; display: table; max-width: 100%; white-space: normal; }textarea { overflow: auto; }[type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button { height: auto; }[type="search"] { appearance: textfield; outline-offset: -2px; }[type="search"]::-webkit-search-decoration { appearance: none; }::-webkit-file-upload-button { appearance: button; font: inherit; }summary { display: list-item; }[hidden], template { display: none; }h1, h2, h3, h4, h5, h6, ul, ol, li, p { margin: 0px; padding: 0px; }body, .--jiki-faux-body { font-size: 14px; line-height: 1.3; -webkit-font-smoothing: antialiased; }body, .--jiki-faux-body {  overflow: hidden; font-family: ui-serif, system-ui, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; background: pink; display: flex; justify-content: stretch; align-items: stretch; height: 100%; width: 100%;  & > * { flex: 1 1 0%; }}#game {  position: relative; background: rgb(10, 18, 21);  & #bricks {  display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; margin: 25px;  & div {  height: 15px; border-radius: 5px;  &:nth-child(-n+5) { background: rgb(198, 44, 52); }  &:nth-child(n+6):nth-child(-n+10) { background: rgb(179, 75, 37); }  &:nth-child(n+11):nth-child(-n+15) { background: rgb(184, 138, 12); }  &:nth-child(n+16):nth-child(-n+20) { background: rgb(46, 133, 44); }  &:nth-child(n+21):nth-child(-n+25) { background: rgb(39, 25, 205); }}}  & #paddle { border-radius: 5px; height: 10px; width: 80px; background: rgb(188, 198, 200); position: absolute; left: 50%; bottom: 15px; transform: translateX(-50%); }  & #ball { border-radius: 100%; height: 15px; width: 15px; background: white; position: absolute; left: 50%; bottom: 25px; transform: translateX(-50%); }}}</style></div></foreignObject></svg>
