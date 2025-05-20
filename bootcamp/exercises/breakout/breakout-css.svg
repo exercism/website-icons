@@ -1,36 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="434" height="289" viewBox="0 0 434 289" id="jiki-svg-9kzhw82ofa" style="
-    position: absolute;
-    height: 434px;
-    background: black;
-"><foreignObject width="100%" height="100%" x="0" y="0" externalresourcesrequired="true">
-        <div class="--jiki-faux-body"><div id="game">
-  <div id="bricks">
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-    <div id="brick"></div>
-  </div>
-  <div id="ball"></div>
-  <div id="paddle"></div>
-</div><style>#jiki-svg-9kzhw82ofa {body { background: white; }button, hr, inputp { overflow: visible; }progress, sub, sup { vertical-align: baseline; }[type="checkbox"], [type="radio"], legend { box-sizing: border-box; padding: 0px; }html { line-height: 1.15; text-size-adjust: 100%; }body, .--jiki-faux-body { margin: 0px; }details, main { display: block; }h1 { font-size: 2em; margin: 0.67em 0px; }hr { box-sizing: content-box; height: 0px; }code, kbd, pre, samp { font-family: monospace, monospace; font-size: 1em; }a { background-color: transparent; }abbr[title] { border-bottom: none; text-decoration: underline dotted; }b, strong { font-weight: bolder; }small { font-size: 80%; }sub, sup { font-size: 75%; line-height: 0; position: relative; }sub { bottom: -0.25em; }sup { top: -0.5em; }img { border-style: none; }button, input, optgroup, select, textarea { font-family: inherit; font-size: 100%; line-height: 1.15; margin: 0px; }button, select { text-transform: none; }[type="button"], [type="reset"], [type="submit"], button { appearance: button; }fieldset { padding: 0.35em 0.75em 0.625em; }legend { color: inherit; display: table; max-width: 100%; white-space: normal; }textarea { overflow: auto; }[type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button { height: auto; }[type="search"] { appearance: textfield; outline-offset: -2px; }[type="search"]::-webkit-search-decoration { appearance: none; }::-webkit-file-upload-button { appearance: button; font: inherit; }summary { display: list-item; }[hidden], template { display: none; }h1, h2, h3, h4, h5, h6, ul, ol, li, p { margin: 0px; padding: 0px; }body, .--jiki-faux-body { font-size: 14px; line-height: 1.3; -webkit-font-smoothing: antialiased; }body, .--jiki-faux-body {  overflow: hidden; font-family: ui-serif, system-ui, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; background: pink; display: flex; justify-content: stretch; align-items: stretch; height: 100%; width: 100%;  & > * { flex: 1 1 0%; }}#game {  position: relative; background: rgb(10, 18, 21);  & #bricks {  display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; margin: 25px;  & div {  height: 15px; border-radius: 5px;  &:nth-child(-n+5) { background: rgb(198, 44, 52); }  &:nth-child(n+6):nth-child(-n+10) { background: rgb(179, 75, 37); }  &:nth-child(n+11):nth-child(-n+15) { background: rgb(184, 138, 12); }  &:nth-child(n+16):nth-child(-n+20) { background: rgb(46, 133, 44); }  &:nth-child(n+21):nth-child(-n+25) { background: rgb(39, 25, 205); }}}  & #paddle { border-radius: 5px; height: 10px; width: 80px; background: rgb(188, 198, 200); position: absolute; left: 50%; bottom: 15px; transform: translateX(-50%); }  & #ball { border-radius: 100%; height: 15px; width: 15px; background: white; position: absolute; left: 50%; bottom: 25px; transform: translateX(-50%); }}}</style></div></foreignObject></svg>
+<svg width="82" height="82" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 41C1 51.6087 5.21427 61.7828 12.7157 69.2843C20.2172 76.7857 30.3913 81 41 81C51.6087 81 61.7828 76.7857 69.2843 69.2843C76.7857 61.7828 81 51.6087 81 41C81 30.3913 76.7857 20.2172 69.2843 12.7157C61.7828 5.21427 51.6087 1 41 1C30.3913 1 20.2172 5.21427 12.7157 12.7157C5.21427 20.2172 1 30.3913 1 41Z" fill="#DAEDF7" stroke="#DAEDF7"/>
+<path d="M10.99 30.174H42.94V42.9539H10.99V30.174Z" fill="#FFE500"/>
+<path d="M41.94 30.174H11.99C11.7248 30.174 11.4704 30.2793 11.2829 30.4668C11.0954 30.6544 10.99 30.9087 10.99 31.174V33.374H42.94V31.174C42.94 30.9087 42.8346 30.6544 42.6471 30.4668C42.4596 30.2793 42.2052 30.174 41.94 30.174Z" fill="#FFF48C"/>
+<path opacity="0.15" d="M25.75 62.228C25.75 62.4902 26.3698 62.7499 27.5741 62.9922C28.7783 63.2345 30.5434 63.4546 32.7686 63.64C34.9938 63.8255 37.6354 63.9726 40.5428 64.0729C43.4501 64.1733 46.5661 64.225 49.713 64.225C52.8599 64.225 55.9759 64.1733 58.8832 64.0729C61.7906 63.9726 64.4322 63.8255 66.6574 63.64C68.8826 63.4546 70.6477 63.2345 71.8519 62.9922C73.0562 62.7499 73.676 62.4902 73.676 62.228C73.676 61.9657 73.0562 61.706 71.8519 61.4637C70.6477 61.2215 68.8826 61.0013 66.6574 60.8159C64.4322 60.6304 61.7906 60.4833 58.8832 60.383C55.9759 60.2826 52.8599 60.231 49.713 60.231C46.5661 60.231 43.4501 60.2826 40.5428 60.383C37.6354 60.4833 34.9938 60.6304 32.7686 60.8159C30.5434 61.0013 28.7783 61.2215 27.5741 61.4637C26.3698 61.706 25.75 61.9657 25.75 62.228Z" fill="#45413C"/>
+<path d="M10.99 42.955H42.94V55.735H10.99V42.955Z" fill="#00B8F0" stroke="#45413C" stroke-linejoin="round"/>
+<path d="M10.99 30.174H42.94V42.9539H10.99V30.174Z" stroke="#45413C" stroke-linejoin="round"/>
+<path d="M29.6275 21.1391L37.238 10.8722L62.9053 29.8983L55.2948 40.1652L29.6275 21.1391Z" fill="#FF6242"/>
+<path d="M60.991 32.483L62.31 30.7C62.3884 30.5945 62.4452 30.4745 62.4771 30.347C62.5091 30.2195 62.5156 30.0869 62.4963 29.9569C62.477 29.8269 62.4322 29.7019 62.3645 29.5892C62.2969 29.4765 62.2077 29.3782 62.102 29.3L38.041 11.468C37.9355 11.3896 37.8155 11.3329 37.688 11.3009C37.5605 11.2689 37.4279 11.2624 37.2979 11.2817C37.1678 11.3011 37.0429 11.3458 36.9302 11.4135C36.8175 11.4811 36.7192 11.5703 36.641 11.676L35.321 13.456L60.991 32.483Z" fill="#FF6242"/>
+<path d="M29.6275 21.1391L37.238 10.8722L62.9053 29.8983L55.2948 40.1652L29.6275 21.1391Z" stroke="#45413C" stroke-linejoin="round"/>
+<path d="M27.414 37.363H71.346V61.326H27.414V37.363Z" fill="#6DD627" stroke="#45413C" stroke-linejoin="round"/>
+</svg>
