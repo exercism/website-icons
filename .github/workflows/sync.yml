@@ -40,6 +40,15 @@ jobs:
           aws s3 sync bootcamp     s3://${{ env.s3_bucket }}/bootcamp/     --acl public-read --no-progress --cache-control max-age=100
           aws s3 sync meta         s3://${{ env.s3_bucket }}/meta/         --acl public-read --no-progress --cache-control max-age=31536000
           
+      # The website uses this to know which icons actually exist, so it can
+      # render its fallback directly rather than pointing at a URL that 403s.
+      # See Icons::RetrieveManifest in the website repo.
+      - name: Generate and upload the manifest
+        run: |
+          find exercises tracks placeholders key-features bootcamp meta -type f |
+            jq -R -s 'split("\n") | map(select(length > 0)) | sort' > manifest.json
+          aws s3 cp manifest.json s3://${{ env.s3_bucket }}/manifest.json --acl public-read --cache-control max-age=60
+
       - name: Gather files to invalidate in CloudFront
         uses: actions/github-script@d556feaca394842dc55e4734bf3bb9f685482fa0
         if: github.event_name == 'push' # Don't run on scheduled runs
