@@ -15,6 +15,7 @@ on:
 jobs:
   deploy:
     name: Upload icons to S3
+    if: github.repository_owner == 'exercism' # Stops this job from running on forks
     runs-on: ubuntu-latest
 
     steps:
@@ -56,16 +57,27 @@ jobs:
         if: github.event_name == 'push' # Don't run on scheduled runs
         id: invalidate-file-paths
         with:
+          result-encoding: string
           script: |
-            const commit = await github.rest.repos.getCommit({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: context.payload.ref
-            })
+            // A push can contain several commits, so look at every file
+            // changed between the old and new head, not just the head commit.
+            const { before, after } = context.payload
+            const files = /^0+$/.test(before)
+              ? (await github.rest.repos.getCommit({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  ref: after
+                })).data.files
+              : (await github.rest.repos.compareCommits({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  base: before,
+                  head: after
+                })).data.files
 
             const filesToInvalidate = []
 
-            for (const file of commit["data"]["files"]) {
+            for (const file of files ?? []) {
               // Don't invalidate new files
               if (file["status"] == "added") {
                 continue
@@ -85,7 +97,10 @@ jobs:
 
       - name: Invalidate assets in CloudFront
         if: github.event_name == 'push' # Don't run on scheduled runs
+        env:
+          PATHS: ${{ steps.invalidate-file-paths.outputs.result }}
         run: |
-          if [ ${{ steps.invalidate-file-paths.outputs.result }} != "" ]; then
-            aws cloudfront create-invalidation --distribution-id E2UP4JZ9NOWLGP --paths ${{ steps.invalidate-file-paths.outputs.result }}
+          if [ -n "$PATHS" ]; then
+            # $PATHS is deliberately unquoted so each path is a separate argument
+            aws cloudfront create-invalidation --distribution-id E2UP4JZ9NOWLGP --paths $PATHS
           fi
