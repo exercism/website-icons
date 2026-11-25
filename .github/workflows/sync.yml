@@ -34,12 +34,12 @@ jobs:
 
       - name: Upload assets to s3
         run: |
-          aws s3 sync exercises    s3://${{ env.s3_bucket }}/exercises/    --acl public-read --no-progress --cache-control max-age=31536000
-          aws s3 sync tracks       s3://${{ env.s3_bucket }}/tracks/       --acl public-read --no-progress --cache-control max-age=31536000
-          aws s3 sync placeholders s3://${{ env.s3_bucket }}/placeholders/ --acl public-read --no-progress --cache-control max-age=31536000
-          aws s3 sync key-features s3://${{ env.s3_bucket }}/key-features/ --acl public-read --no-progress --cache-control max-age=31536000
+          aws s3 sync exercises    s3://${{ env.s3_bucket }}/exercises/    --acl public-read --no-progress --cache-control "max-age=86400, s-maxage=31536000"
+          aws s3 sync tracks       s3://${{ env.s3_bucket }}/tracks/       --acl public-read --no-progress --cache-control "max-age=86400, s-maxage=31536000"
+          aws s3 sync placeholders s3://${{ env.s3_bucket }}/placeholders/ --acl public-read --no-progress --cache-control "max-age=86400, s-maxage=31536000"
+          aws s3 sync key-features s3://${{ env.s3_bucket }}/key-features/ --acl public-read --no-progress --cache-control "max-age=86400, s-maxage=31536000"
           aws s3 sync bootcamp     s3://${{ env.s3_bucket }}/bootcamp/     --acl public-read --no-progress --cache-control max-age=100
-          aws s3 sync meta         s3://${{ env.s3_bucket }}/meta/         --acl public-read --no-progress --cache-control max-age=31536000
+          aws s3 sync meta         s3://${{ env.s3_bucket }}/meta/         --acl public-read --no-progress --cache-control "max-age=86400, s-maxage=31536000"
           
       # The website uses this to know which icons actually exist, so it can
       # render its fallback directly rather than pointing at a URL that 403s.
@@ -95,6 +95,9 @@ jobs:
 
             return filesToInvalidate.join(" ")
 
+      # Requests for icons go through Cloudflare, then CloudFront, then S3.
+      # CloudFront has to be cleared first, or Cloudflare would fetch the old
+      # icon from CloudFront again.
       - name: Invalidate assets in CloudFront
         if: github.event_name == 'push' # Don't run on scheduled runs
         env:
@@ -102,5 +105,26 @@ jobs:
         run: |
           if [ -n "$PATHS" ]; then
             # $PATHS is deliberately unquoted so each path is a separate argument
-            aws cloudfront create-invalidation --distribution-id E2UP4JZ9NOWLGP --paths $PATHS
+            id=$(aws cloudfront create-invalidation --distribution-id E3L749HRPZHLFS --paths $PATHS --query Invalidation.Id --output text)
+            aws cloudfront wait invalidation-completed --distribution-id E3L749HRPZHLFS --id "$id"
+          fi
+
+      - name: Purge assets in Cloudflare
+        if: github.event_name == 'push' # Don't run on scheduled runs
+        env:
+          PATHS: ${{ steps.invalidate-file-paths.outputs.result }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+          CLOUDFLARE_CACHE_PURGE_TOKEN: ${{ secrets.CLOUDFLARE_CACHE_PURGE_TOKEN }}
+        run: |
+          if [ -n "$PATHS" ]; then
+            # Cloudflare accepts at most 100 URLs per purge request
+            printf '%s\n' $PATHS | sed 's|^|https://assets.exercism.org|' |
+              jq -R . | jq -s -c '[range(0; length; 100) as $i | .[$i:$i+100]] | .[] | {files: .}' |
+              while read -r body; do
+                curl --fail-with-body -sS -X POST \
+                  "https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONE_ID/purge_cache" \
+                  -H "Authorization: Bearer $CLOUDFLARE_CACHE_PURGE_TOKEN" \
+                  -H "Content-Type: application/json" \
+                  --data "$body"
+              done
           fi
